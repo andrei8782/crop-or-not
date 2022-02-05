@@ -1,4 +1,3 @@
-# save this as app.py
 from flask import Flask, request
 from sklearn.model_selection import train_test_split
 
@@ -24,7 +23,7 @@ def get_model(crop: str):
     model.fit(X_train, y_train)
     return model
 
-crops = ['maize', 'test']
+crops = ['maize']
 models = {}
 
 for crop in crops:
