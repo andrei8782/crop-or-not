@@ -1,5 +1,6 @@
 # crop-or-not
 
-pip install
-flask run
+pip install -r requirements.txt \
+flask run \
 send vectors on /predict
+
