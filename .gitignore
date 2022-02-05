@@ -2,3 +2,7 @@
 __pycache__
 crop-venv
 .DS_Store
+npm-debug.log
+.cache/
+dist/
+node_modules/
