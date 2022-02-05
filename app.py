@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 def get_model(crop: str):
     print('training on ' + crop)
-    arr = np.loadtxt(open(f'{crop}.csv', "rb"), delimiter=",", skiprows=1)
+    arr = np.loadtxt(open(f'crop-data/{crop}.csv', "rb"), delimiter=",", skiprows=1)
     np.random.shuffle(arr)
     data = pd.DataFrame(arr)
     data.columns= ["Month", "Max Temperature", "Min Temperature", "Precipitation","Humidity","Solar","Temperature Avg","Condition"]
@@ -24,7 +24,7 @@ def get_model(crop: str):
     model.fit(X_train, y_train)
     return model
 
-crops = ['maize', 'crop2']
+crops = ['maize', 'test']
 models = {}
 
 for crop in crops:
