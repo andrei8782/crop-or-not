@@ -1,13 +1,10 @@
 from flask import Flask, request
 from sklearn.model_selection import train_test_split
-
 import pandas as pd
 import xgboost as xgb
 import numpy as np
 
 app = Flask(__name__)
-
-
 
 def get_model(crop: str):
     print('training on ' + crop)

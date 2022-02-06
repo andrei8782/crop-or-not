@@ -1,6 +1,6 @@
 .vscode
 __pycache__
-crop-venv
+crop-or-not-venv
 .DS_Store
 npm-debug.log
 .cache/
