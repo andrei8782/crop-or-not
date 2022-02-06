@@ -11,7 +11,7 @@ def get_model(crop: str):
     arr = np.loadtxt(open(f'training-data/{crop}.csv', "rb"), delimiter=",", skiprows=1)
     np.random.shuffle(arr)
     data = pd.DataFrame(arr)
-    data.columns= ["Month", "Max Temperature", "Min Temperature", "Precipitation","Humidity","Solar","Temperature Avg","Condition"]
+    data.columns= ["Month", "Max Temperature", "Min Temperature", "Precipitation", "Humidity", "Solar", "Temperature Avg", "Condition"]
     X, y = data.iloc[:,:-1],data.iloc[:,-1]
     print(X.shape)
 
@@ -20,7 +20,7 @@ def get_model(crop: str):
     model.fit(X_train, y_train)
     return model
 
-crops = ['maize']
+crops = ['maize', 'potatoes', 'sorghum', 'soya', 'sunflower']
 models = {}
 
 for crop in crops:

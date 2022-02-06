@@ -10,7 +10,7 @@ const MapWithADrawingManager = compose(
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCUeqo4q2StqCjFPFKSB_2FoB4O17zBdtI&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
+    containerElement: <div style={{ height: `600px` }} />,
     mapElement: <div style={{ height: `100%` }} />,
   }),
   withScriptjs,
@@ -22,48 +22,55 @@ const MapWithADrawingManager = compose(
     defaultZoom={8}
     defaultCenter={new google.maps.LatLng(-34.397, 150.644)}
   > {
-  <DrawingManager
-    defaultDrawingMode={google.maps.drawing.OverlayType.RECTANGLE}
-    drawingControl={!drawnRect}
-    onOverlayComplete={(evt) => {
-      console.log(evt)
-      evt.setMap(null)
-    }}
-    onRectangleComplete={(rectangle) => {
-      setDrawnRect(true)
-      console.log(rectangle.bounds)
-    }}
-    defaultOptions={{
-      drawingControlOptions: {
-        position: google.maps.ControlPosition.TOP_CENTER,
-        drawingModes: [
-          google.maps.drawing.OverlayType.RECTANGLE,
-        ],
-      }
-    }}
-  />
-}
-</GoogleMap>
+      <DrawingManager
+        defaultDrawingMode={google.maps.drawing.OverlayType.RECTANGLE}
+        drawingControl={!drawnRect}
+        onOverlayComplete={(evt) => {
+          console.log(evt)
+          evt.setMap(null)
+        }}
+        onRectangleComplete={(rectangle) => {
+          setDrawnRect(true)
+          console.log(rectangle.bounds)
+        }}
+        defaultOptions={{
+          drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: [
+              google.maps.drawing.OverlayType.RECTANGLE,
+            ],
+          }
+        }}
+      />
+    }
+  </GoogleMap>
 }
 
-  
+
 );
 
-
+const style = {
+  width: '100%'
+}
 
 const App = () => {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="App-title">Welcome to crop-or-not</h1>
+      </header>
+      <p className="App-intro">
+        To get started, select a location by drawing a rectangle over the map.
+      </p>
+      <div style={style}>
         <MapWithADrawingManager />
       </div>
-    );
+
+    <button>Submit</button>
+
+    </div>
+  );
 }
 
 
