@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 def get_model(crop: str):
     print('training on ' + crop)
-    arr = np.loadtxt(open(f'crops-data/{crop}.csv', "rb"), delimiter=",", skiprows=1)
+    arr = np.loadtxt(open(f'training-data/{crop}.csv', "rb"), delimiter=",", skiprows=1)
     np.random.shuffle(arr)
     data = pd.DataFrame(arr)
     data.columns= ["Month", "Max Temperature", "Min Temperature", "Precipitation","Humidity","Solar","Temperature Avg","Condition"]
